@@ -1,0 +1,68 @@
+<html>
+<head>
+<title>Online Classifieds</title>
+<style>
+  body{background:#ccffff;font-family:Verdana,Arial,sans-serif;}
+  h1{color:#f33;margin:10px 0;}
+  hr{border:0;border-top:1px solid #699;}
+  table{border-collapse:collapse}
+  td{padding:6px;vertical-align:top}
+  .date{width:140px}
+  .keywords{width:620px}
+  .actions img{vertical-align:middle}
+  .btn{background:none;border:0;cursor:pointer}
+</style>
+<script>
+  function doSearch(e){ e.preventDefault(); alert('Search simulation'); }
+  function doCancel(){ document.getElementById('frm').reset(); }
+</script>
+</head>
+<body>
+  <h1>Online Classifieds Search Form</h1>
+  <hr>
+
+  <form id="frm" onsubmit="doSearch(event)">
+    <table>
+      <tr><td><b>1) Search for a classified in the following sections:</b></td></tr>
+      <tr><td>
+        <label><input type="radio" name="sec"> Employment</label>
+        <label><input type="radio" name="sec"> Personal</label><br>
+        <label><input type="radio" name="sec" checked> For Sale</label>
+        <label><input type="radio" name="sec"> Miscellaneous</label><br>
+        <label><input type="radio" name="sec"> Housing</label>
+        <label><input type="radio" name="sec"> All of the above</label>
+      </td></tr>
+
+      <tr><td><b>2) Search the following publications:</b></td></tr>
+      <tr><td>
+        <label><input type="checkbox" checked> Midwest times</label>
+        <label><input type="checkbox"> Modern News</label>
+        <label><input type="checkbox"> Employment Today</label><br>
+        <label><input type="checkbox" checked> Great Lakes Classifieds</label>
+        <label><input type="checkbox"> Middletown Daily</label>
+        <label><input type="checkbox"> Cashtown Daily News</label>
+      </td></tr>
+
+      <tr>
+        <td><b>3) From</b>
+          <input id="from" class="date" type="text" placeholder="mm/dd/yy">
+          <b>to</b>
+          <input id="to" class="date" type="text" placeholder="mm/dd/yy">
+        </td>
+      </tr>
+
+      <tr><td><b>4) Enter a few keywords to describe the classified.</b></td></tr>
+      <tr><td><input id="keywords" class="keywords" type="text"></td></tr>
+
+      <tr><td><b>5) Click one of the options below:</b></td></tr>
+      <tr>
+        <td class="actions">
+          <button type="submit" class="btn"><img src="../ex49/images/Search.gif" alt="Search"></button>
+          <a href="Help.html" target="_blank"><img src="../ex49/images/Help.gif" alt="Help"></a>
+          <a href="#" onclick="doCancel();return false;"><img src="../ex49/images/Cancel.gif" alt="Cancel"></a>
+        </td>
+      </tr>
+    </table>
+  </form>
+</body>
+</html>
