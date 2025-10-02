@@ -1,0 +1,111 @@
+<html>
+<head>
+  <title>Registration Form</title>
+  <style>
+    body {
+      background-color: #99ccff; /* nền xanh */
+      font-family: Arial, sans-serif;
+    }
+    h2 {
+      text-align: center;
+    }
+    form {
+      width: 600px;
+      margin: auto;
+    }
+    table {
+      width: 100%;
+    }
+    hr {
+      margin: 15px 0;
+    }
+  </style>
+</head>
+<body>
+  <div style="text-align:center;">
+    <img src="../ex48/images/Jackson.gif" alt="Jackson Electronics">
+  </div>
+
+  <h2>Registration Form</h2>
+  <p style="text-align:center;">Register your Jackson Electronics product here</p>
+
+  <form>
+    <table>
+      <tr>
+        <td>First Name:</td>
+        <td><input type="text"></td>
+        <td>Last Name:</td>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <td>Address #1:</td>
+        <td colspan="3"><input type="text" size="50"></td>
+      </tr>
+      <tr>
+        <td>Address #2:</td>
+        <td colspan="3"><input type="text" size="50"></td>
+      </tr>
+      <tr>
+        <td>City:</td>
+        <td><input type="text"></td>
+        <td>State:</td>
+        <td><input type="text" size="5"> Zip: <input type="text" size="5"></td>
+      </tr>
+      <tr>
+        <td>Country:</td>
+        <td colspan="3"><input type="text" value="United States"></td>
+      </tr>
+    </table>
+
+    <hr>
+
+    <table>
+      <tr>
+        <td>Product:</td>
+        <td>
+          <select>
+            <option>ScanMaster</option>
+            <option>Printer</option>
+            <option>Monitor</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Date Purchased:</td>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <td>Serial #:</td>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <td>Used for:</td>
+        <td>
+          <input type="radio" name="use"> Home
+          <input type="radio" name="use"> Business
+          <input type="radio" name="use"> Educational Institution
+          <input type="radio" name="use"> Other
+        </td>
+      </tr>
+      <tr>
+        <td>System:</td>
+        <td>
+          <input type="checkbox"> Windows
+          <input type="checkbox"> Macintosh
+          <input type="checkbox"> UNIX
+          <input type="checkbox"> Other
+        </td>
+      </tr>
+    </table>
+
+    <hr>
+
+    <p>Comments?</p>
+    <textarea rows="5" cols="60"></textarea>
+
+    <br><br>
+    <input type="submit" value="Click to register">
+    <input type="reset" value="Click to cancel">
+  </form>
+</body>
+</html>
