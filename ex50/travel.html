@@ -1,0 +1,123 @@
+<html>
+<head>
+<title>Travel Expense Report</title>
+<style>
+  body{background:#ccf4f4;font-family:"Times New Roman", Times, serif;margin:0}
+  .wrap{max-width:920px;margin:20px auto 40px;padding:0 10px}
+  .logo{display:block;margin:0 auto 12px auto}
+  h1{margin:6px 0 10px 0;font-size:30px;letter-spacing:.5px;text-transform:uppercase}
+  hr{border:0;border-top:1px solid #8acaca;margin:8px 0 16px}
+
+  .row{margin:10px 0}
+  .lbl{display:inline-block;min-width:180px}
+  input[type="text"], select{padding:4px}
+  textarea{width:100%;height:120px}
+
+  table{width:100%;border-collapse:collapse;margin-top:6px}
+  th,td{border:1px solid #8acaca;padding:6px}
+  th{text-transform:uppercase;background:#eaf9f9}
+
+  .w-date{width:120px}
+  .w-amt{width:100px}
+  .btns{margin:14px 0}
+  .btns input{padding:6px 12px;margin-right:10px}
+  small{color:#333}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <img src="../ex50/images/DeLong.jpg" alt="DeLong Enterprises" class="logo">
+  <h1>Travel Expense Report</h1>
+  <hr>
+
+  <form onsubmit="alert('Travel expenses submitted');return false;">
+    <div class="row">
+      <span class="lbl">1) First Name:</span><input type="text" class="w-date">
+      <span class="lbl" style="min-width:120px">Last Name:</span><input type="text" class="w-date">
+    </div>
+
+    <div class="row">
+      <span class="lbl">2) Social Security Number:</span><input type="text" class="w-date">
+    </div>
+
+    <div class="row">
+      <span class="lbl">3) Department:</span>
+      <select>
+        <option>Accounting</option><option>Sales</option><option>Marketing</option>
+        <option>IT</option><option>Other</option>
+      </select>
+    </div>
+
+    <div class="row"><span class="lbl">4) Describe the purpose of your trip.</span></div>
+    <div class="row"><textarea></textarea></div>
+
+    <div class="row"><b>5) Itemize your travel expenses</b></div>
+    <table>
+      <tr>
+        <th class="w-date">Date</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th class="w-amt">Amount</th>
+      </tr>
+      <tr>
+        <td><input type="text" placeholder="mm/dd/yy" class="w-date"></td>
+        <td><input type="text" style="width:100%"></td>
+        <td>
+          <select>
+            <option>Meal</option><option>Hotel</option><option>Airfare</option>
+            <option>Taxi</option><option>Other</option>
+          </select>
+        </td>
+        <td><input type="text" class="w-amt"></td>
+      </tr>
+      <tr>
+        <td><input type="text" placeholder="mm/dd/yy" class="w-date"></td>
+        <td><input type="text" style="width:100%"></td>
+        <td>
+          <select>
+            <option>Meal</option><option>Hotel</option><option>Airfare</option>
+            <option>Taxi</option><option>Other</option>
+          </select>
+        </td>
+        <td><input type="text" class="w-amt"></td>
+      </tr>
+      <tr>
+        <td><input type="text" placeholder="mm/dd/yy" class="w-date"></td>
+        <td><input type="text" style="width:100%"></td>
+        <td>
+          <select>
+            <option>Meal</option><option>Hotel</option><option>Airfare</option>
+            <option>Taxi</option><option>Other</option>
+          </select>
+        </td>
+        <td><input type="text" class="w-amt"></td>
+      </tr>
+      <tr>
+        <td><input type="text" placeholder="mm/dd/yy" class="w-date"></td>
+        <td><input type="text" style="width:100%"></td>
+        <td>
+          <select>
+            <option>Meal</option><option>Hotel</option><option>Airfare</option>
+            <option>Taxi</option><option>Other</option>
+          </select>
+        </td>
+        <td><input type="text" class="w-amt"></td>
+      </tr>
+    </table>
+
+    <div class="row">
+      <span class="lbl">6) Have you submitted your receipts?</span>
+      <label><input type="radio" name="rcpt"> Yes</label>
+      <label style="margin-left:12px;"><input type="radio" name="rcpt"> No</label>
+    </div>
+
+    <div class="btns">
+      <input type="submit" value="Submit travel expenses">
+      <input type="reset" value="Reset">
+    </div>
+
+    <small>Questions? Contact Debbie Larson in Accounting (ext. 2150).</small>
+  </form>
+</div>
+</body>
+</html>
