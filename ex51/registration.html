@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Newborn Registration</title>
+  <style>
+    /* chỉ dùng màu nền + màu chữ như yêu cầu */
+    body{
+      margin:0;
+      background:#087a74;         /* nền xanh đậm như hình mẫu */
+      font-family: Times New Roman, serif;
+      color:#ffffff;               /* chữ trắng */
+    }
+    .logo{
+      text-align:center;
+      margin:10px 0 0;
+    }
+    h1{
+      text-align:center;
+      font-size:48px;
+      margin:20px 0 25px;
+      color:#ffffff;
+    }
+    /* bố cục đơn giản bằng table để canh hàng */
+    table{ margin:0 auto; color:#ffffff; }
+    td{ padding:10px 8px; vertical-align:middle; }
+    input, select, textarea{
+      font-family:inherit;
+      font-size:16px;
+    }
+    .btns{ text-align:center; margin:18px 0 30px; }
+  </style>
+</head>
+<body>
+
+  <!-- Logo trên cùng, canh giữa -->
+  <div class="logo">
+    <img src="../ex51/images/Logo.gif" alt="St. Mary's of Northland Pines">
+  </div>
+
+  <!-- Tiêu đề chính -->
+  <h1>Newborn Registration</h1>
+
+  <!-- Form đăng ký -->
+  <form onsubmit="alert('Submitted!'); return false;">
+    <table>
+      <tr>
+        <td>Date:</td>
+        <td><input type="text" placeholder="mm/dd/yy" size="15"></td>
+      </tr>
+
+      <tr>
+        <td>1) Infant's first name:</td>
+        <td>
+          <input type="text" size="25">
+          &nbsp; Last:
+          <input type="text" size="25">
+        </td>
+      </tr>
+
+      <tr>
+        <td>2) Medical Record #:</td>
+        <td><input type="text" size="20"></td>
+      </tr>
+
+      <tr>
+        <td>3) Date of birth:</td>
+        <td><input type="text" placeholder="mm/dd/yy" size="15"></td>
+      </tr>
+
+      <tr>
+        <td>4) Birth weight :</td>
+        <td><input type="text" size="12"></td>
+      </tr>
+
+      <tr>
+        <td>5) APGAR score :</td>
+        <td><input type="text" size="8"></td>
+      </tr>
+
+      <tr>
+        <td>6) Mother's first name:</td>
+        <td>
+          <input type="text" size="35">
+          &nbsp; Last:
+          <input type="text" size="20">
+        </td>
+      </tr>
+
+      <tr>
+        <td>7) Father's first name :</td>
+        <td>
+          <input type="text" size="35">
+          &nbsp; Last:
+          <input type="text" size="20">
+        </td>
+      </tr>
+
+      <tr>
+        <td valign="top">8) Physician (check all that apply.):</td>
+        <td>
+          <select size="5" multiple style="width:240px;">
+            <option>Dr. Warren Albert</option>
+            <option>Dr. Maria Alvarez</option>
+            <option>Dr. Karen Brinkman</option>
+            <option>Dr. Micheal Kerry</option>
+          </select>
+        </td>
+      </tr>
+    </table>
+
+    <div class="btns">
+      <input type="submit" value="Register">
+      <input type="button" value="Cancel" onclick="this.form.reset();">
+    </div>
+  </form>
+</body>
+</html>
