@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Product – GET</title>
+  <style>
+    body{font-family:Tahoma, Arial, sans-serif}
+    table{border-collapse:collapse; width:820px; margin:20px auto}
+    th,td{border:1px solid #555; padding:8px}
+    th{background:#f2f2f2}
+    tfoot td{border:none; padding-top:14px; font-weight:bold}
+    .right{ text-align:right }
+    .qty{ width:120px }
+    .w80{ width:80px }
+    .sum-btn{
+      background:#ffa726; border:1px solid #cc7a00; padding:8px 18px;
+      font-weight:bold; cursor:pointer
+    }
+    .wrap{width:860px; margin:0 auto}
+    h2{margin:10px auto 0; width:820px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h2>List of products</h2>
+
+    <!-- GỬI DỮ LIỆU BẰNG GET -->
+    <form action="product_result.html" method="get">
+      <!-- lưu giá (để trang kết quả tính toán) -->
+      <input type="hidden" name="p1" value="19.95">
+      <input type="hidden" name="p2" value="29.95">
+      <input type="hidden" name="p3" value="39.95">
+      <!-- lưu nhãn hiển thị -->
+      <input type="hidden" name="code1" value="C112">
+      <input type="hidden" name="code2" value="B124">
+      <input type="hidden" name="code3" value="U125">
+      <input type="hidden" name="name1" value="Mouse">
+      <input type="hidden" name="name2" value="Keyboard US">
+      <input type="hidden" name="name3" value="USB KingMax">
+
+      <table>
+        <thead>
+          <tr>
+            <th>Part Number</th>
+            <th>Description</th>
+            <th class="right">Price</th>
+            <th>Qty</th>
+            <th>Item total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>C112</td>
+            <td>Mouse</td>
+            <td class="right">$19.95</td>
+            <td><input class="qty" type="number" min="0" name="q1" value="0"></td>
+            <td><input class="w80" type="text" value="" placeholder="" disabled></td>
+          </tr>
+          <tr>
+            <td>B124</td>
+            <td>Keyboard US</td>
+            <td class="right">$29.95</td>
+            <td><input class="qty" type="number" min="0" name="q2" value="0"></td>
+            <td><input class="w80" type="text" disabled></td>
+          </tr>
+          <tr>
+            <td>U125</td>
+            <td>USB KingMax</td>
+            <td class="right">$39.95</td>
+            <td><input class="qty" type="number" min="0" name="q3" value="0"></td>
+            <td><input class="w80" type="text" disabled></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="3" class="right">Total:</td>
+            <td colspan="2">
+              <input class="w80" type="text" disabled>
+              <button class="sum-btn" type="submit">Sum</button>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </form>
+  </div>
+</body>
+</html>

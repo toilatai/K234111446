@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Product – Result</title>
+  <style>
+    body{font-family:Tahoma, Arial, sans-serif}
+    table{border-collapse:collapse; width:720px; margin:24px auto}
+    th,td{border:1px solid #555; padding:8px}
+    th{background:#f2f2f2}
+    .right{text-align:right}
+    .wrap{width:760px; margin:0 auto}
+    h2{text-align:center}
+    .back{display:block; width:720px; margin:10px auto; text-align:right}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h2>Order summary</h2>
+    <table id="tbl"><thead>
+      <tr>
+        <th>Part Number</th>
+        <th>Description</th>
+        <th class="right">Price</th>
+        <th class="right">Qty</th>
+        <th class="right">Item total</th>
+      </tr>
+    </thead><tbody></tbody>
+    <tfoot>
+      <tr>
+        <td colspan="4" class="right"><b>Grand total</b></td>
+        <td class="right" id="grand">$0.00</td>
+      </tr>
+    </tfoot></table>
+
+    <a class="back" href="product_get.html">⟵ Back</a>
+  </div>
+
+  <script>
+    // Lấy dữ liệu từ GET
+    const p = new URLSearchParams(location.search);
+    const items = [
+      {code: p.get('code1'), name: p.get('name1'), price: parseFloat(p.get('p1')||0), qty: parseInt(p.get('q1')||0)},
+      {code: p.get('code2'), name: p.get('name2'), price: parseFloat(p.get('p2')||0), qty: parseInt(p.get('q2')||0)},
+      {code: p.get('code3'), name: p.get('name3'), price: parseFloat(p.get('p3')||0), qty: parseInt(p.get('q3')||0)},
+    ];
+
+    const tbody = document.querySelector('#tbl tbody');
+    let grand = 0;
+    items.forEach(it => {
+      const line = it.price * (isNaN(it.qty)?0:it.qty);
+      grand += line;
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${it.code||''}</td>
+        <td>${it.name||''}</td>
+        <td class="right">$${it.price.toFixed(2)}</td>
+        <td class="right">${isNaN(it.qty)?0:it.qty}</td>
+        <td class="right">$${line.toFixed(2)}</td>`;
+      tbody.appendChild(tr);
+    });
+    document.getElementById('grand').textContent = '$' + grand.toFixed(2);
+  </script>
+</body>
+</html>
