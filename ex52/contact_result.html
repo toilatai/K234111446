@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Message summary</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .box { max-width: 700px; margin: 0 auto; }
+    pre  { white-space: pre-wrap; word-wrap: break-word; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>Message sent</h2>
+    <div id="out"></div>
+    <p><a href="contact.html">← Back</a></p>
+  </div>
+
+  <script>
+    const q = new URLSearchParams(location.search);
+    const fields = [
+      ["Full name", "fullname"],
+      ["Email", "email"],
+      ["Send to", "dept"],
+      ["Title", "title"],
+      ["Content", "content"],
+    ];
+    const out = document.getElementById('out');
+
+    fields.forEach(([label, key]) => {
+      const value = q.get(key) || "";
+      const h = document.createElement('h4'); h.textContent = label;
+      const c = key === "content" ? document.createElement('pre') : document.createElement('p');
+      c.textContent = value;
+      out.append(h, c);
+    });
+  </script>
+</body>
+</html>

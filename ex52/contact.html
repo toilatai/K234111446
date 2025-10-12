@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Contact the editorial office</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .box { max-width: 700px; margin: 0 auto; }
+    label { display:block; margin-top:10px; }
+    input, select, textarea { width:100%; box-sizing:border-box; padding:8px; }
+    button { margin-top:12px; padding:8px 14px; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>Contact the editorial office</h2>
+
+    <form action="contact_result.html" method="get">
+      <label>Full name
+        <input name="fullname" type="text" required>
+      </label>
+
+      <label>Email
+        <input name="email" type="email" required>
+      </label>
+
+      <label>Send to
+        <select name="dept">
+          <option>Editorial board</option>
+          <option>News Department</option>
+          <option>Board of Perspectives</option>
+          <option>World Board</option>
+          <option>Business Department</option>
+        </select>
+      </label>
+
+      <label>Title
+        <input name="title" type="text" required>
+      </label>
+
+      <label>Content
+        <textarea name="content" rows="8" required></textarea>
+      </label>
+
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</body>
+</html>
