@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>Math Function</title>
+<style>
+  body { font-family: Tahoma, sans-serif; }
+  table { border:1px solid #000; border-collapse: collapse; margin:30px auto; }
+  td { border:1px solid #000; padding:5px; }
+  input[type="text"] { width:150px; }
+  input[type="button"] { margin:3px; }
+</style>
+<script>
+function getValues() {
+  var a = parseFloat(document.getElementById("a").value) || 0;
+  var b = parseFloat(document.getElementById("b").value) || 0;
+  var c = parseFloat(document.getElementById("c").value) || 0;
+  return {a,b,c};
+}
+function showResult(val){ document.getElementById("result").value = val; }
+
+function maxVal(){
+  var v = getValues();
+  showResult(Math.max(v.a,v.b,v.c));
+}
+function minVal(){
+  var v = getValues();
+  showResult(Math.min(v.a,v.b,v.c));
+}
+function sinA(){
+  var a = getValues().a;
+  showResult(Math.sin(a*Math.PI/180));
+}
+function cosA(){
+  var a = getValues().a;
+  showResult(Math.cos(a*Math.PI/180));
+}
+function powAB(){
+  var v = getValues();
+  showResult(Math.pow(v.a,v.b));
+}
+</script>
+</head>
+<body>
+  <table>
+    <tr><td>a:</td><td><input type="text" id="a" value="30"></td></tr>
+    <tr><td>b:</td><td><input type="text" id="b" value="45"></td></tr>
+    <tr><td>c:</td><td><input type="text" id="c" value="90"></td></tr>
+    <tr><td>Result:</td><td><input type="text" id="result" readonly></td></tr>
+    <tr>
+      <td colspan="2" style="text-align:center">
+        <input type="button" value="MAX" onclick="maxVal()">
+        <input type="button" value="MIN" onclick="minVal()">
+        <input type="button" value="sin(a)" onclick="sinA()">
+        <input type="button" value="Cos(a)" onclick="cosA()">
+        <input type="button" value="a^b" onclick="powAB()">
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

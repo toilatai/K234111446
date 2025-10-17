@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>Quadratic Equation</title>
+<style>
+  body { font-family: Tahoma, sans-serif; }
+  table { border-collapse: collapse; border:1px solid #555; margin: 40px auto; }
+  td { border:1px solid #555; padding:6px; }
+  th { background:#d9ead3; padding:8px; text-align:center; }
+  input[type=text]{ width:200px; }
+  input[type=button]{ margin:5px; padding:5px 15px; border:1px solid orange; border-radius:4px; }
+</style>
+
+<script>
+function solve(){
+  let a = parseFloat(document.getElementById("a").value);
+  let b = parseFloat(document.getElementById("b").value);
+  let c = parseFloat(document.getElementById("c").value);
+  if(isNaN(a) || isNaN(b) || isNaN(c)){ 
+    document.getElementById("result").value = "Please enter all numbers."; 
+    return;
+  }
+  if(a === 0){
+    document.getElementById("result").value = (b!==0) ? "x = " + (-c/b) : "No solution";
+    return;
+  }
+  let delta = b*b - 4*a*c;
+  if(delta < 0) document.getElementById("result").value = "No real roots";
+  else if(delta === 0){
+    let x = -b/(2*a);
+    document.getElementById("result").value = "x1 = x2 = " + x;
+  }else{
+    let x1 = (-b + Math.sqrt(delta))/(2*a);
+    let x2 = (-b - Math.sqrt(delta))/(2*a);
+    document.getElementById("result").value = "x1 = " + x1 + " ; x2 = " + x2;
+  }
+}
+
+function clearForm(){
+  document.getElementById("a").value = "";
+  document.getElementById("b").value = "";
+  document.getElementById("c").value = "";
+  document.getElementById("result").value = "";
+}
+</script>
+</head>
+
+<body>
+  <table>
+    <tr><th colspan="2">The quadratic equation</th></tr>
+    <tr><td>a:</td><td><input type="text" id="a" value="1"></td></tr>
+    <tr><td>b:</td><td><input type="text" id="b" value="3"></td></tr>
+    <tr><td>c:</td><td><input type="text" id="c" value="-4"></td></tr>
+    <tr><td>Result:</td><td><input type="text" id="result" readonly></td></tr>
+    <tr>
+      <td colspan="2" style="text-align:center">
+        <input type="button" value="Find solution" onclick="solve()">
+        <input type="button" value="Clear" onclick="clearForm()">
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

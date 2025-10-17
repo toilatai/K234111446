@@ -1,0 +1,86 @@
+<html>
+<head>
+<title>String Processing</title>
+<style>
+  body { font-family: Tahoma, sans-serif; }
+  table { border-collapse: collapse; border:1px solid #555; margin:30px auto; }
+  th { text-align:center; padding:8px; }
+  td { border:1px solid #555; padding:6px; text-align:center; }
+  textarea { width:200px; height:80px; }
+  input[type=button] { width:200px; margin:3px; }
+  h2 { text-align:center; }
+</style>
+<script>
+function getInput() {
+  return document.getElementById("input").value;
+}
+function show(result) {
+  document.getElementById("output").value = result;
+}
+function enterData() {
+  show(getInput());
+}
+function countUpper() {
+  let s = getInput(), count = 0;
+  for(let i=0;i<s.length;i++)
+    if(s[i]>='A' && s[i]<='Z') count++;
+  show("Uppercase count: " + count);
+}
+function toUpper() {
+  show(getInput().toUpperCase());
+}
+function toLower() {
+  show(getInput().toLowerCase());
+}
+function oneWordPerLine() {
+  let s = getInput().split(/\s+/).join("\n");
+  show(s);
+}
+function wordCount() {
+  let s = getInput().trim();
+  show("Word count: " + (s ? s.split(/\s+/).length : 0));
+}
+function countLower() {
+  let s = getInput(), count = 0;
+  for(let i=0;i<s.length;i++)
+    if(s[i]>='a' && s[i]<='z') count++;
+  show("Lowercase count: " + count);
+}
+function printVowelsCons() {
+  let s = getInput().toLowerCase();
+  let vowels = "", cons = "";
+  for(let i=0;i<s.length;i++){
+    if(/[aeiou]/.test(s[i])) vowels += s[i];
+    else if(/[a-z]/.test(s[i])) cons += s[i];
+  }
+  show("Vowels: " + vowels + "\nConsonants: " + cons);
+}
+</script>
+</head>
+<body>
+  <table>
+    <tr><th colspan="2"><h3>Using String Processing functions</h3></th></tr>
+    <tr>
+      <td><b>Input Data:</b><br><textarea id="input"></textarea></td>
+      <td><b>Result:</b><br><textarea id="output" readonly></textarea></td>
+    </tr>
+    <tr>
+      <td><input type="button" value="Enter Data" onclick="enterData()"></td>
+      <td><input type="button" value="Count the number of uppercase characters" onclick="countUpper()"></td>
+    </tr>
+    <tr>
+      <td><input type="button" value="Uppercase display" onclick="toUpper()"></td>
+      <td><input type="button" value="Output one word per line" onclick="oneWordPerLine()"></td>
+    </tr>
+    <tr>
+      <td><input type="button" value="lowercase display" onclick="toLower()"></td>
+      <td><input type="button" value="Word count" onclick="wordCount()"></td>
+    </tr>
+    <tr>
+      <td><input type="button" value="Count the number of lowercase characters" onclick="countLower()"></td>
+      <td><input type="button" value="print vowels, consonants" onclick="printVowelsCons()"></td>
+    </tr>
+    <tr><td colspan="2">String Processing Website</td></tr>
+  </table>
+</body>
+</html>
