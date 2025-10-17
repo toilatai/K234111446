@@ -1,0 +1,58 @@
+<html>
+<head>
+<meta charset="utf-8" />
+<title>XML DOMParser</title>
+<style>
+  body { font-family: "Times New Roman", serif; }
+  table { border-collapse: collapse; width: 620px; margin: 18px; }
+  th, td { border: 1px solid #333; padding: 10px 14px; font-size: 22px; }
+  thead th { background: #dfead3; font-size: 28px; }
+  /* default row style */
+  tbody tr { background: #fff; color: #000; }
+  /* hover style applied via JS */
+  tbody tr.hover { background: #1e6bd6; color: #fff; }
+</style>
+</head>
+<body>
+
+<table id="info">
+  <thead>
+    <tr><th colspan="2">Student Information</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Student ID:</td>   <td id="idCell"></td></tr>
+    <tr><td>Student Name:</td> <td id="nameCell"></td></tr>
+    <tr><td>Birthday:</td>     <td id="birthdayCell"></td></tr>
+    <tr><td>Gender:</td>       <td id="genderCell"></td></tr>
+  </tbody>
+</table>
+
+<script>
+  // 1) XML string
+  const xmlText = `
+    <student>
+      <id>987456</id>
+      <name>Marie Curie</name>
+      <birthday>7/11/1867</birthday>
+      <gender>Woman</gender>
+    </student>`;
+
+  // 2) Parse with DOMParser
+  const parser = new DOMParser();
+  const xmlDoc  = parser.parseFromString(xmlText, "text/xml");
+
+  // 3) Read values
+  const get = tag => xmlDoc.getElementsByTagName(tag)[0].textContent.trim();
+  document.getElementById("idCell").textContent        = get("id");
+  document.getElementById("nameCell").textContent      = get("name");
+  document.getElementById("birthdayCell").textContent  = get("birthday");
+  document.getElementById("genderCell").textContent    = get("gender");
+
+  // 4) Row hover effects (mouseover/mouseout)
+  document.querySelectorAll("#info tbody tr").forEach(tr => {
+    tr.addEventListener("mouseover", () => tr.classList.add("hover"));
+    tr.addEventListener("mouseout",  () => tr.classList.remove("hover"));
+  });
+</script>
+</body>
+</html>
